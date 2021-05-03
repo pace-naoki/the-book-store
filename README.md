@@ -24,6 +24,9 @@ At the document root path<br>
 ### Migrate & Seeding
 ```php artisan migrate --seed```
 
+### Npm run dev
+```npm run dev```
+
 ### Application Login Info
 Login user is automaticaly created after running seeding.<br><br>
 
