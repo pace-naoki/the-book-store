@@ -11,7 +11,7 @@ Install the repository and check out dev branch
 
 ### DB set up
 Create the following database and user<br>
-If you are using MAMM, you can set up it easily.<br><br>
+If you are using MAMM, you can set up it easily<br><br>
 
 DATABASE: the_book_store<br>
 USER: the_book_store<br>
@@ -23,3 +23,9 @@ At the document root path<br>
 
 ### Migrate & Seeding
 ```php artisan migrate --seed```
+
+### Application Login Info
+Login user is automaticaly created after running seeding.<br><br>
+
+EMAIL: test@gmail.com<br>
+PASSWORD: 11111111
