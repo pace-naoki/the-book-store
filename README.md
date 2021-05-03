@@ -22,10 +22,17 @@ At the document root path<br>
 ```cp .env.sample .env```
 
 ### Migrate & Seeding
+At the document root path<br>
 ```php artisan migrate --seed```
 
 ### Npm run dev
+At the document root path<br>
 ```npm run dev```
+
+### Testing
+I also implemented Feature test<br>
+At the document root path<br>
+```./vendor/bin/phpunit ./tests/Feature/BooksTest.php```
 
 ### Application Login Info
 Login user is automaticaly created after running seeding.<br><br>
