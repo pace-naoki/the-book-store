@@ -29,6 +29,10 @@ At the document root path<br>
 At the document root path<br>
 ```npm run dev```
 
+### Run App
+At the document root path<br>
+```php artisan serve```
+
 ### Testing
 I also implemented Feature test<br>
 At the document root path<br>
