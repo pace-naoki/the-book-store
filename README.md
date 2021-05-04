@@ -39,7 +39,7 @@ At the document root path<br>
 ```./vendor/bin/phpunit ./tests/Feature/BooksTest.php```
 
 ### Application Login Info
-Login user is automaticaly created after running seeding.<br><br>
+Login user is automaticaly created after running seeding<br><br>
 
 EMAIL: test@gmail.com<br>
 PASSWORD: 11111111
