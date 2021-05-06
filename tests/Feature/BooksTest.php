@@ -55,6 +55,7 @@ class BooksTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_add_a_book()
     {
+        $this->withoutExceptionHandling();
         $response = $this->post('/api/books', $this->data());
 
         $book = Book::first();
@@ -62,12 +63,13 @@ class BooksTest extends TestCase
         $this->assertEquals('Test Description', $book->description);
         $this->assertEquals('05/14/1988', $book->published_at->format('m/d/Y'));
         $response->assertStatus(Response::HTTP_CREATED);
+
         $response->assertJson([
             'data' => [
                 'book_id' => $book->id
             ],
             'links' => [
-                'self' => $book->path(),
+                'self' => $book->path,
             ]
         ]);
     }
@@ -143,7 +145,7 @@ class BooksTest extends TestCase
                 'book_id' => $book->id
             ],
             'links' => [
-                'self' => $book->path(),
+                'self' => $book->path,
             ]
         ]);
     }

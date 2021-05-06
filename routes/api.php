@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('/books', 'BooksController@index');
-    Route::post('/books', 'BooksController@store');
-    Route::get('/books/{book}', 'BooksController@show');
-    Route::patch('/books/{book}', 'BooksController@update');
-    Route::delete('/books/{book}', 'BooksController@destroy');
+    Route::resource('books', BooksController::class);
 });
 

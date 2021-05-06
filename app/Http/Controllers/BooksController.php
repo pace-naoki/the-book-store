@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Book;
-use App\Http\Resources\Book as BookResource;
+use App\Http\Requests\BookCreateOrEditRequest;
+use App\Http\Resources\BookResource;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -12,14 +13,12 @@ class BooksController extends Controller
 
     public function index()
     {
-        $this->authorize('viewAny', Book::class);
         return BookResource::collection(request()->user()->books);
     }
 
-    public function store()
+    public function store(BookCreateOrEditRequest $request)
     {
-        $this->authorize('create', Book::class);
-        $book = request()->user()->books()->create($this->validataData());
+        $book = request()->user()->books()->create($request->all());
         return (new BookResource($book))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
@@ -27,14 +26,13 @@ class BooksController extends Controller
 
     public function show(Book $book)
     {
-        $this->authorize('view', $book);
         return new BookResource($book);
     }
 
-    public function update(Book $book)
+    public function update(BookCreateOrEditRequest $request, Book $book)
     {
         $this->authorize('update', $book);
-        $book->update($this->validataData());
+        $book->update($request->all());
 
         return (new BookResource($book))
             ->response()
@@ -47,15 +45,6 @@ class BooksController extends Controller
         $book->delete();
 
         return response([], Response::HTTP_NO_CONTENT);
-    }
-
-    private function validataData()
-    {
-        return request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'published_at' => 'required',
-        ]);
     }
 
 }

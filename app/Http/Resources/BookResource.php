@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Book extends JsonResource
+class BookResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -23,7 +23,7 @@ class Book extends JsonResource
                 'last_updated' => $this->updated_at->diffForHumans()
             ],
             'links' => [
-                'self' => $this->path()
+                'self' => $this->path
             ]
         ];
     }

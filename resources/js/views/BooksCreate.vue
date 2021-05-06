@@ -7,7 +7,7 @@
       <InputField name="description" label="Description" :errors="errors"
                   placeholder="Description"
                   @update:field="form.description = $event"/>
-      <InputField name="published_at" label="PublishedAt" :errors="errors"
+      <InputField name="published_at" label="Published At" :errors="errors"
                   placeholder="MM/DD/YYYY"
                   @update:field="form.published_at = $event"/>
       <div class="flex justify-end">
