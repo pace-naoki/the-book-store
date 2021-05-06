@@ -2,24 +2,19 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Book extends Model
 {
     protected $guarded = ['book_id'];
     protected $dates = ['published_at'];
 
-    public function getPathAttribute() {
+    public function getPathAttribute(): String {
         return '/books/' . $this->id;
     }
 
-    public function setPublishedAtAttribute($published_at)
-    {
-        $this->attributes['published_at'] = Carbon::parse($published_at);
-    }
-
-    public function user() {
+    public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }
 }

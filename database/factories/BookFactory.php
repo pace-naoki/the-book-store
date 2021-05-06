@@ -10,6 +10,6 @@ $factory->define(Book::class, function (Faker $faker) {
         'user_id' => factory(\App\User::class),
         'title' => $faker->name,
         'description' => $faker->sentence,
-        'published_at' => '05/14/1988'
+        'published_at' => '01/14/1988 00:00:00',
     ];
 });
