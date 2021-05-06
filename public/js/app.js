@@ -3915,10 +3915,9 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "flex justify-between" }, [
       _c(
-        "a",
+        "button",
         {
           staticClass: "text-blue-400",
-          attrs: { href: "#" },
           on: {
             click: function($event) {
               return _vm.$router.back()

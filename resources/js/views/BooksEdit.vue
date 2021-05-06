@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="flex justify-between">
-      <a href="#" class="text-blue-400" @click="$router.back()">
+      <button class="text-blue-400" @click="$router.back()">
         < Back
-      </a>
+      </button>
     </div>
     <form @submit.prevent>
       <InputField name="title" label="Book Title"
